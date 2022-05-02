@@ -1,0 +1,41 @@
+class Calculator 방식은 main method 테스트이다.
+[ ]main method 문제점
+    -[ ] Production code와 Test code가 클래스 하나에 공존한다.
+    -[ ] 클래스 크기가 커짐에 따라 복잡도 증가함.
+    -[ ] Test Code가 실 서비스에 같이 배포됨.
+    -[ ] main method 하나에서 여러 개의 기능을 테스트함. 복잡도 증가.
+    -[ ] method 이름을 통해 어떤 부분을 테스트하는지에 대한 의도를 드러내기 힘듦
+    -[ ] 테스트 결과를 사람이 수동으로 확인
+
+[ ] Test Code
+    - 테스트에 사용되는 클래스 선언 Calculator = cal;
+
+    - @BeforeEach setUp()
+        각 테스트 함수가 불리기 전에 매번 호출됨
+    - @Test
+        해당 메소드가 단위 테스트임을 명시하는 어노테이션이다.
+    - @Displayname
+        어노테이션을 사용하여 읽기 좋은 다른 이름을 부여할 수 있다.
+    - @AfterEach tearDown()
+        각 테스트 메소드 종료 후에 실행되어야 하는 메소드에 써줍니다.
+    -assertEquals(expected, actual) 숫자 비교
+    -assertThat(문자열).isEqualTo 문자열 비교
+    -contains, containsExactly
+        actual 인자 하나만 요구 그 뒤로 메소드 체이닝을 하므로
+        actual과 expected를 명확하게 구분지어준다
+    -assertThatThrownBy(() -> { 예외 처리})
+    .isInstanceOf(IndexOutOfBoundsException.class)
+    .hasMessageContaining("%d" ,index);
+[ ] method
+    -split
+        특정한 문자를 기준으로 나누어 배열로 저장하여 리턴한다.
+        String[] 변수 = 문자열.split("기호")
+    -substring()
+        1개 인자
+        가져올 문자열의 인덱스
+        2개인자
+        가져올 문자열의 인덱스, 마지막 문자열 인덱스 + 1 >> 두차가 나올 문자개수
+        ex)"0123456789".substring(4, 8) >> 4567
+    -charAt()
+        String으로 저장된 문자열 중에서 한 글자만 선택해서 char타입으로 변환해준다.
+        문자열.charAt(index번호)
